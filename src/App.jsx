@@ -1,10 +1,17 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from './components/Navigation/Navigation';
+import Footer from './components/Footer/Footer';
+
+import AppRoutes from './routes/AppRoutes';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>HOLA</h1>
-    </div>
+      <Navigation />
+      <AppRoutes />
+      <Footer />
+    </div >
   );
 }
 
