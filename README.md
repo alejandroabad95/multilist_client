@@ -74,29 +74,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 |              URL path                  |                  Description                |            Protected           |
 | :------------------------------------: | :-----------------------------------------: | :----------------------------: |
-|              /signup                   |                  signup page                |             Everyone           |
-|              /login                    |                   login page                |             Everyone           |
+|              /registro                 |                  signup page                |             Everyone           |
+|              /iniciar-sesion           |                   login page                |             Everyone           |
 |              /                         |                   home  page                |             Everyone           |
-|              /lists                    |                public lists page            |             Everyone           |
-|              /users                    |                   users list                |              Admin             |
-|              /users/:id                |             user details & profile          |          Own User &Admin       |
-|              /my-lists                 |                  personal lists             |          Own User & Admin      |
-
-
-|              /my-lists/type1 
-|              /my-lists/type2
-|              /my-lists/type3
-
-
-
-Dudas
-
-Detalles de la lista no sé si merece la pena quiero que se ve tal cual la lista con las tareas usando una ventana desplegable
-
-¿Una ruta de cerrar sesión ya no hace falta?
-
-¿Se puede usar ventanas modales para crear listas, editar información y eliminar usuarios?
-
-¿Modelo tasks?
-
-Contexto para hacer una ventana desplegable y contexto para cambiar de color una tarea?
+|              /listas                   |                public lists page            |             Everyone           |
+|              /usuarios                 |                   users list                |              Admin             |
+|              /usuarios/:id             |             user details & profile          |          Own User & Admin      |
+|              /mis-listas               |                  personal lists             |          Own User & Admin      |

@@ -17,8 +17,8 @@ class ListService {
         return this.api.get(`/getOneList/${list_id}`)
     }
 
-    saveList(listData) {
-        return this.api.post('/saveList', listData)
+    createList(listData) {
+        return this.api.post('/createList', listData)
     }
 
     updateList = (listId, listData) => {
@@ -28,6 +28,13 @@ class ListService {
     deleteList = (listId) => {
         return this.api.delete(`/lists/deleteList/${listId}`);
     }
+
+    deleteOneList = (listId, task) => {
+        return this.api.put(`/lists/deleteOneTask/${listId}/${task}`);
+    }
+
+
+
 
 }
 
