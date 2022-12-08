@@ -76,7 +76,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 | :------------------------------------: | :-----------------------------------------: | :----------------------------: |
 |              /registro                 |                  signup page                |             Everyone           |
 |              /iniciar-sesion           |                   login page                |             Everyone           |
-|              /                        |                   home  page                |             Everyone           |
+|              /                         |                   home  page                |             Everyone           |
 |              /listas                   |                public lists page            |             Everyone           |
 |              /usuarios                 |                   users list                |              Admin             |
 |              /usuarios/:id             |             user details & profile          |          Own User & Admin      |
