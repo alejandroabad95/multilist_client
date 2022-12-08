@@ -1,42 +1,38 @@
+import { useContext } from "react"
 import { Col, Row } from "react-bootstrap"
+import { AuthContext } from "../../contexts/auth.context"
 
 import ListCard from "../ListCard/ListCard"
 
 
-const ListCollection = ({ lists, estado }) => {
 
-    // let todas = true
-    // let publica = list.public
-    // let privada = !list.public
+const ListCollection = ({ lists }) => {
 
-    let condition
+    const { user } = useContext(AuthContext)
 
-
+    // console.log(user._id, 'id del usuario')
 
     return (
         <Row>
             {lists.map(list => {
-                let state
-                if (estado === 'publicas') {
-                    state = list.public
-                } else if (estado === 'privadas') {
-                    state = !list.public
-                } else {
-                    state = true
-                }
+                // console.log(list.owner)
+
+
                 return (
 
-
-                    state &&
+                    (list.public || (user._id === list.owner)) &&
                     <Col sm={{ span: 4 }} key={list._id} >
                         <ListCard {...list} />
                     </Col>
+
                 )
-
-
 
             })}
         </Row>
+
+
+        // || user._id === list.owner
+
     )
 }
 
