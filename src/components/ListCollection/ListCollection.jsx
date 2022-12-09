@@ -17,10 +17,9 @@ const ListCollection = ({ lists }) => {
             {lists.map(list => {
                 // console.log(list.owner)
 
-
                 return (
 
-                    (list.public || (user._id === list.owner)) &&
+                    (list.public || (user?._id === list.owner)) &&
                     <Col sm={{ span: 4 }} key={list._id} >
                         <ListCard {...list} />
                     </Col>
