@@ -58,10 +58,6 @@ const ListPage = () => {
 
                 }
 
-
-
-
-
                 <hr />
                 {!lists ? <Loader /> : <ListCollection lists={lists} />}
 
@@ -72,8 +68,6 @@ const ListPage = () => {
                 </span>
 
             </Container>
-
-            {/* cambiar modal */}
 
             <Modal show={showModal} onHide={closeModal}>
                 <Modal.Header closeButton>

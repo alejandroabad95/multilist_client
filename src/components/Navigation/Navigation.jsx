@@ -30,7 +30,7 @@ const Navigation = () => {
                                     <Nav.Link as="div">Mis listas</Nav.Link>
                                 </Link>
 
-                                <Link to="/*">
+                                <Link to={`/usuarios/${user._id}`}>
                                     <Nav.Link as="div">Perfil</Nav.Link>
                                 </Link>
 

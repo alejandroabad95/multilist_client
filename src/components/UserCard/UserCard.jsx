@@ -1,28 +1,22 @@
-// import './UserCard.css'
-// import Card from 'react-bootstrap/Card'
-// import Button from 'react-bootstrap/Button'
-// import { Link } from 'react-router-dom'
+import './UserCard.css'
+import Card from 'react-bootstrap/Card'
+
+function UserCard({ user }) {
+    const { username, email, role } = user
+    console.log(username, email, role)
+
+    return (
+        <Card className="mb-4 CoasterCard">
+            <Card.Body>
+                <Card.Title>Nick: {username} </Card.Title>
+                <Card.Title>email: {email} </Card.Title>
+                <Card.Title>rol: {role} </Card.Title>
+            </Card.Body>
+        </Card>
+
+    )
+
+}
 
 
-//meter lógica
-
-
-// function UserCard({ username, email, role, }) {
-
-//     return (
-
-//         <Card className="mb-4 CoasterCard">
-//             <Card.Title>{username}</Card.Title>
-//             <Card.Body>
-//                 <Card.text>email: {email}</Card.text>
-//                 <Card.text>role: {role}</Card.text>
-//             </Card.Body>
-//         </Card>
-
-
-//     )
-
-// }
-
-
-// export default UserCard
+export default UserCard
