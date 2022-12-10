@@ -26,9 +26,28 @@ const Navigation = () => {
                         {user ?
                             <>
 
-                                <Link to="/*">
+                                <Link to="/mis-listas">
                                     <Nav.Link as="div">Mis listas</Nav.Link>
                                 </Link>
+
+
+                                {user.role === "ADMIN" ?
+
+                                    <>
+
+                                        < Link to="/usuarios">
+                                            <Nav.Link as="div">Lista de usuarios</Nav.Link>
+                                        </Link>
+
+                                    </>
+                                    :
+                                    <></>
+
+                                }
+
+
+
+
 
                                 <Link to={`/usuarios/${user._id}`}>
                                     <Nav.Link as="div">Perfil</Nav.Link>
@@ -49,10 +68,13 @@ const Navigation = () => {
                             </>
                         }
 
+
+
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     )
 }
 

@@ -2,8 +2,8 @@ import './UserCard.css'
 import Card from 'react-bootstrap/Card'
 
 function UserCard({ user }) {
+
     const { username, email, role } = user
-    console.log(username, email, role)
 
     return (
         <Card className="mb-4 CoasterCard">

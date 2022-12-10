@@ -25,6 +25,10 @@ class AuthService {
         return this.api.post('/signup', userData)
     }
 
+    getUsers() {
+        return this.api.get('/getAllUsers')
+    }
+
     login(userData) {
         return this.api.post('/login', userData)
     }

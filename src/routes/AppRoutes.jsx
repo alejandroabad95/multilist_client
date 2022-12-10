@@ -4,6 +4,8 @@ import ListPage from "../pages/ListPage/ListPage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import UserPage from "../pages/UserPage/UserPage"
+import PersonalListPage from "../pages/PersonalListPage/PersonalListPage"
+import UserListPage from "../pages/UserListPage/UserListPage"
 
 
 import PrivateRoute from "./PrivateRoute"
@@ -20,8 +22,8 @@ const AppRoutes = () => {
             <Route element={<PrivateRoute />}>
 
                 <Route path="/usuarios/:id" element={<UserPage />} />
-                <Route path="/mis-listas" element={<h1>Mis listas</h1>} />
-                <Route path="/usuarios" element={<h1>Lista de usuarios</h1>} />
+                <Route path="/mis-listas" element={<PersonalListPage />} />
+                <Route path="/usuarios" element={<UserListPage />} />
 
             </Route>
 
