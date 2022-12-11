@@ -4,6 +4,8 @@ import listsService from "../../services/list.service"
 
 import uploadServices from "../../services/upload.service"
 
+import ErrorMessage from "../ErrorMessage/ErrorMessage"
+
 
 // import { MessageContext } from '../../contexts/userMessage.context'
 
@@ -22,6 +24,8 @@ const NewListForm = ({ fireFinalActions }) => {
     })
 
     const [loadingImage, setLoadingImage] = useState(false)
+
+    const [errors, setError] = useState([])
 
 
     const handleInputChange = e => {
@@ -58,7 +62,7 @@ const NewListForm = ({ fireFinalActions }) => {
                 // setToastMessage('Lista creada')
                 fireFinalActions()
             })
-            .catch(err => console.error(err))
+            .catch(err => setError(err.response.data.errorMessages))
     }
 
     const { imageUrl, title, type, description, task1, task2, task3 } = listData
@@ -105,6 +109,9 @@ const NewListForm = ({ fireFinalActions }) => {
                 <Form.Label>Tarea 3</Form.Label>
                 <Form.Control type="text" value={task3} onChange={handleInputChange} name="task3" />
             </Form.Group>
+
+            {errors.length ? errors.map(elm => <ErrorMessage><p style={{ color: 'red' }}> {elm}</p></ErrorMessage>) : undefined}
+
 
             <div className="d-grid">
                 <Button variant="dark" type="submit">Crear lista</Button>
