@@ -32,7 +32,7 @@ const PersonalListPage = () => {
 
     const loadLists = () => {
         listsService
-            .getLists()
+            .getUserLists()
             .then(({ data }) => setLists(data))
             .catch(err => console.log(err))
     }
@@ -43,6 +43,7 @@ const PersonalListPage = () => {
         loadLists()
         closeModal()
     }
+
 
 
     return (
@@ -56,6 +57,19 @@ const PersonalListPage = () => {
                 <hr />
 
                 {!lists ? <Loader /> : <ListCollection lists={lists} />}
+
+
+                {/* && user._id === lists.owner */}
+
+
+                {/* {!lists ? <Loader /> : result */}
+
+                {/* const listComponent= <ListCollection lists={lists} />
+
+                const result = listComponent.filter(list => list.owner === user._id) */}
+
+
+
 
                 <span className="comeback">
                     <Link to="/">

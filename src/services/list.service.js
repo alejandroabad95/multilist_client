@@ -25,6 +25,10 @@ class ListService {
         return this.api.get('/getAllLists')
     }
 
+    getUserLists() {
+        return this.api.get('/getUserLists')
+    }
+
     getOneList(list_id) {
         return this.api.get(`/getOneList/${list_id}`)
     }
@@ -38,14 +42,12 @@ class ListService {
     }
 
     deleteList = (listId) => {
-        return this.api.delete(`/lists/deleteList/${listId}`);
+        return this.api.delete(`/deleteList/${listId}`);
     }
 
     deleteOneList = (listId, task) => {
         return this.api.put(`/lists/deleteOneTask/${listId}/${task}`);
     }
-
-
 
 
 }

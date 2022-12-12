@@ -65,13 +65,10 @@ const NewListForm = ({ fireFinalActions }) => {
             .catch(err => setError(err.response.data.errorMessages))
     }
 
-    const { imageUrl, title, type, description, task1, task2, task3 } = listData
+    const { imageUrl, title, type, description, isPublic, task1, task2, task3 } = listData
 
 
     return (
-
-
-        // cambiar formulario 1imageUrl,2title,3type,4description,5public,6task1,7task2,8task3
 
         <Form onSubmit={handleFormSubmit}>
 
@@ -89,6 +86,26 @@ const NewListForm = ({ fireFinalActions }) => {
                 <Form.Label>Descripción</Form.Label>
                 <Form.Control type="text" value={description} onChange={handleInputChange} name="description" />
             </Form.Group>
+
+            {/* Hacer lista pública */}
+
+            <Form.Group className="mb-3" controlId="isPublic">
+                <Form.Label>Lista pública</Form.Label>
+                <Form.Control type="text" value={isPublic} onChange={handleInputChange} name="isPublic" />
+            </Form.Group>
+
+            {/* <Form.Check
+
+                type="switch"
+                id="custom-switch"
+                label="Hacer lista pública"
+                value="true"
+
+
+            /> */}
+
+
+            {/* ---------------------*/}
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Imagen</Form.Label>

@@ -5,7 +5,10 @@ function UserCard({ user }) {
 
     const { username, email, role } = user
 
+
+
     return (
+
         <Card className="mb-4 CoasterCard">
             <Card.Body>
                 <Card.Title>Nick: {username} </Card.Title>

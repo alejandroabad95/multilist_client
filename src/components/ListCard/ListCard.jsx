@@ -2,9 +2,35 @@ import './ListCard.css'
 import Card from 'react-bootstrap/Card'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
+import { Link, useRouteLoaderData } from 'react-router-dom'
+import { Form } from 'react-bootstrap'
+import ErrorMessage from "../ErrorMessage/ErrorMessage"
+import listsService from '../../services/list.service'
+import { AuthContext } from '../../contexts/auth.context'
+import { useContext } from 'react'
 
-function ListCard({ imageUrl, title, type, description, tasks }) {
+
+function ListCard({ list, setRefresh }) {
+
+    const { description, tasks, title, imageUrl, type, _id, owner } = list
+
+    const listDelete = (id) => {
+
+        listsService
+            .deleteList(id)
+            .then((res) => {
+                setRefresh(res)
+
+            })
+
+            .catch(err => console.log(err))
+    }
+
+    // -----------------------------------------------------------------------
+
+
+    const { user } = useContext(AuthContext)
+
     return (
         <Card className="bg-light mb-4 ListCard">
 
@@ -31,12 +57,16 @@ function ListCard({ imageUrl, title, type, description, tasks }) {
                     </Accordion.Body>
                     <Accordion.Body>{tasks[1]}</Accordion.Body>
                     <Accordion.Body>{tasks[2]}</Accordion.Body>
-
                 </Accordion.Item>
             </Accordion>
 
+            {(user?.role === "ADMIN" || user?._id === owner) &&
 
+                < div className="d-grid">
+                    <Button variant="warming" onClick={() => listDelete(_id)} type="submit">ELIMINAR</Button>
+                </div>
 
+            }
 
 
         </Card >

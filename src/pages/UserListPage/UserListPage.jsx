@@ -47,7 +47,7 @@ const UserListPage = () => {
 
                 <span className="comeback">
                     <Link to="/">
-                        <Button variant="dark" className="float-right">Volver a inicio</Button>
+                        <Button variant="dark">Volver a inicio</Button>
                     </Link>
                 </span>
             </Container >

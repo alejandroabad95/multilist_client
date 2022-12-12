@@ -1,10 +1,18 @@
 import './UserList.css'
 import UserCard from '../UserCard/UserCard'
+import { AuthContext } from "../../contexts/auth.context"
 
-import { Row, Col } from 'react-bootstrap'
+import { useContext } from 'react'
+
+import { Row, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
+
+
 
 const UserList = ({ users }) => {
 
+    const { user } = useContext(AuthContext)
 
     return (
 
@@ -13,12 +21,16 @@ const UserList = ({ users }) => {
                 {users.map(user => {
 
                     return (
-                        <Col sm={{ span: 4 }} key={user._id} >
+                        <Row sm={{ span: 4 }} key={user._id} >
                             <UserCard user={user} />
-                        </Col>
+                        </Row>
                     )
 
                 })}
+
+
+
+
             </Row>
         </>
 

@@ -6,7 +6,10 @@ import ListCard from "../ListCard/ListCard"
 
 
 
-const ListCollection = ({ lists }) => {
+
+
+const ListCollection = ({ lists, setRefresh }) => {
+
 
     const { user } = useContext(AuthContext)
 
@@ -15,13 +18,13 @@ const ListCollection = ({ lists }) => {
     return (
         <Row>
             {lists.map(list => {
-                // console.log(list.owner)
 
                 return (
 
-                    (list.public || (user?._id === list.owner)) &&
+                    (list.isPublic || (user?._id === list.owner)) &&
+
                     <Col sm={{ span: 4 }} key={list._id} >
-                        <ListCard {...list} />
+                        <ListCard list={list} setRefresh={setRefresh} />
                     </Col>
 
                 )

@@ -38,7 +38,7 @@ const SignupForm = () => {
             .then(() => {
                 // setShowToast(true)
                 // setToastMessage('Usuario creado correctamente')
-                navigate('/')
+                navigate('/iniciar-sesion')
             })
             .catch(err => setErrors(err.response.data.errorMessages))
     }
