@@ -41,12 +41,15 @@ class ListService {
         return this.api.put(`/lists/updateList/${listId}`, listData);
     }
 
+
+
     deleteList = (listId) => {
         return this.api.delete(`/deleteList/${listId}`);
     }
 
+
     deleteOneList = (listId, task) => {
-        return this.api.put(`/lists/deleteOneTask/${listId}/${task}`);
+        return this.api.put(`/deleteOneTask/${listId}/${task}`);
     }
 
 

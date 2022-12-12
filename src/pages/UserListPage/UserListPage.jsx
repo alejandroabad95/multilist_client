@@ -21,10 +21,17 @@ const UserListPage = () => {
 
     const { user } = useContext(AuthContext) //cojo el contexto del usuario para ver si soy admin
 
+    //constante de refrescar
+
+    const [refresh, setRefresh] = useState(null)
+
+
+
     //uso el servicio de sacar todos los users
     useEffect(() => {
         loadUsers()
-    }, [])
+    }, [refresh])
+
 
 
     const loadUsers = () => {
@@ -43,7 +50,7 @@ const UserListPage = () => {
             < Container >
                 < h1 > Lista de usuarios</h1 >
                 <hr />
-                {!users ? <Loader /> : <UserList users={users} />}
+                {!users ? <Loader /> : <UserList users={users} setRefresh={setRefresh} />}
 
                 <span className="comeback">
                     <Link to="/">

@@ -29,6 +29,10 @@ class AuthService {
         return this.api.get('/getAllUsers')
     }
 
+    deleteUser = (userId) => {
+        return this.api.delete(`/deleteUser/${userId}`);
+    }
+
     login(userData) {
         return this.api.post('/login', userData)
     }

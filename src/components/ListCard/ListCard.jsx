@@ -63,7 +63,7 @@ function ListCard({ list, setRefresh }) {
             {(user?.role === "ADMIN" || user?._id === owner) &&
 
                 < div className="d-grid">
-                    <Button variant="warming" onClick={() => listDelete(_id)} type="submit">ELIMINAR</Button>
+                    <Button variant="danger" onClick={() => listDelete(_id)} type="submit">ELIMINAR</Button>
                 </div>
 
             }

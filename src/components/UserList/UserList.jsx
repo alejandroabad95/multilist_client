@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const UserList = ({ users }) => {
+const UserList = ({ users, setRefresh }) => {
 
     const { user } = useContext(AuthContext)
 
@@ -22,7 +22,7 @@ const UserList = ({ users }) => {
 
                     return (
                         <Row sm={{ span: 4 }} key={user._id} >
-                            <UserCard user={user} />
+                            <UserCard user={user} setRefresh={setRefresh} />
                         </Row>
                     )
 
