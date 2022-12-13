@@ -2,16 +2,21 @@ import './UserCard.css'
 import Card from 'react-bootstrap/Card'
 
 import authService from '../../services/auth.service'
+import { AuthContext } from '../../contexts/auth.context'
+
 import Button from "react-bootstrap/Button"
 
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+
 
 
 function UserCard({ user, setRefresh }) {
 
     const { username, email, role, _id } = user
 
-    //Eliminar usuario
+    const { logoutUser } = useContext(AuthContext)
+
     const navigate = useNavigate()
 
     const userDelete = (id) => {
@@ -19,9 +24,13 @@ function UserCard({ user, setRefresh }) {
         authService
             .deleteUser(id)
             .then((res) => {
+                if (user.role === "ADMIN") {
+                    setRefresh(res)
 
-                setRefresh(res)
-
+                } else {
+                    logoutUser()
+                    navigate("/registro")
+                }
 
             })
 
