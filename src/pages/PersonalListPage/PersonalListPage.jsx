@@ -79,6 +79,9 @@ const PersonalListPage = () => {
 
             </Container>
 
+
+
+
             <Modal show={showModal} onHide={closeModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Nueva lista</Modal.Title>

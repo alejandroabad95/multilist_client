@@ -23,6 +23,7 @@ const LoginForm = () => {
     }
 
     const navigate = useNavigate()
+
     const { storeToken, authenticateUser } = useContext(AuthContext)
     // const { setShowToast, setToastMessage } = useContext(MessageContext)
 
@@ -40,7 +41,10 @@ const LoginForm = () => {
                 // setToastMessage('Sesión iniciada')
                 navigate('/')
             })
-            .catch(err => setErrors(err.response.data.errorMessages))
+            .catch(err => {
+                console.log(err)
+                setErrors(err.response.data.errorMessages)
+            })
     }
 
     const { password, email } = signupData

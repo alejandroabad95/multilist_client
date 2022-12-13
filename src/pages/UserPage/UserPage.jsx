@@ -9,12 +9,15 @@ import Loader from "../../components/Loader/Loader" //importar loader
 
 import { AuthContext } from "../../contexts/auth.context"
 
+import { useState } from "react"
+
 
 const UserPage = () => {
 
-
     const { user } = useContext(AuthContext) //cojo el contexto del user que me da los datos del user
 
+    //Refresh nuevo
+    const [refresh, setRefresh] = useState(null)
 
     return (
 
@@ -30,7 +33,7 @@ const UserPage = () => {
 
             <hr />
 
-            {!user ? <Loader /> : <UserCard user={user} />}
+            {!user ? <Loader /> : <UserCard user={user} setRefresh={setRefresh} />}
 
             <span className="comeback">
                 <Link to="/">

@@ -13,7 +13,6 @@ const SignupPage = () => {
 
                     <h1>Registro</h1>
                     <hr />
-
                     <SignupForm />
 
                 </Col>

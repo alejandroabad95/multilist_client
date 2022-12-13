@@ -2,7 +2,9 @@ import { useContext } from 'react'
 import { Nav, Container, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth.context'
+import './Navigation.css'
 
+//quitar bg para usar css
 
 const Navigation = () => {
 
@@ -10,8 +12,8 @@ const Navigation = () => {
 
 
     return (
-        <Navbar bg="dark" expand="lg" variant="dark" className="mb-5">
-            <Container>
+        <Navbar bg="secondary" expand="lg" variant="dark" className="mb-5" >
+            <Container >
                 <Link to="/">
                     <Navbar.Brand as="div">📋 Multilist</Navbar.Brand>
                 </Link>
@@ -44,10 +46,6 @@ const Navigation = () => {
                                     <></>
 
                                 }
-
-
-
-
 
                                 <Link to={`/usuarios/${user._id}`}>
                                     <Nav.Link as="div">Perfil</Nav.Link>

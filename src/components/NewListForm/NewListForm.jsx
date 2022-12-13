@@ -127,7 +127,7 @@ const NewListForm = ({ fireFinalActions }) => {
                 <Form.Control type="text" value={task3} onChange={handleInputChange} name="task3" />
             </Form.Group>
 
-            {errors.length ? errors.map(elm => <ErrorMessage><p style={{ color: 'red' }}> {elm}</p></ErrorMessage>) : undefined}
+            {errors.length ? <ErrorMessage>{errors.map(elm => <p style={{ color: 'red' }}> {elm}</p>)}</ErrorMessage> : undefined}
 
 
             <div className="d-grid">

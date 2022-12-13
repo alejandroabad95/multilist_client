@@ -4,19 +4,25 @@ import Card from 'react-bootstrap/Card'
 import authService from '../../services/auth.service'
 import Button from "react-bootstrap/Button"
 
+import { useNavigate } from 'react-router-dom'
+
 
 function UserCard({ user, setRefresh }) {
 
     const { username, email, role, _id } = user
 
     //Eliminar usuario
+    const navigate = useNavigate()
 
     const userDelete = (id) => {
 
         authService
             .deleteUser(id)
             .then((res) => {
+
                 setRefresh(res)
+
+
             })
 
             .catch(err => console.log(err))

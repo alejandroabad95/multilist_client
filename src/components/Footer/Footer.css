@@ -1,8 +1,9 @@
 footer {
-    background-color: #212429;
-    color: white;
-    font-size: .5em;
+    background-color: lightgray;
+    color: black;
+    font-size: .8em;
     text-align: center;
+    font-weight: bolder;
     padding: 4px;
     position: fixed;
     width: 100%;

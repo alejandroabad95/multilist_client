@@ -19,6 +19,9 @@ const ListPage = () => {
     const [lists, setLists] = useState() //cojo el estado de lists
 
     const [showModal, setShowModal] = useState(false)
+
+
+
     const openModal = () => setShowModal(true)
     const closeModal = () => setShowModal(false)
     const [refresh, setRefresh] = useState(null)
