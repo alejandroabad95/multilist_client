@@ -42,11 +42,17 @@ class ListService {
     }
 
 
-
     deleteList = (listId) => {
         return this.api.delete(`/deleteList/${listId}`);
     }
 
+    //elimianr listas del usuario tras borrarlo
+
+    deleteUserLists = (userId) => {
+        return this.api.delete(`/deleteUserLists/${userId}`);
+    }
+
+    //---------------------------->
 
     deleteOneList = (listId, task) => {
         return this.api.put(`/deleteOneTask/${listId}/${task}`);

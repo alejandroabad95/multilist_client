@@ -2,6 +2,7 @@ import './UserCard.css'
 import Card from 'react-bootstrap/Card'
 
 import authService from '../../services/auth.service'
+import listsService from '../../services/list.service'
 import { AuthContext } from '../../contexts/auth.context'
 
 import Button from "react-bootstrap/Button"
@@ -19,7 +20,36 @@ function UserCard({ user, setRefresh }) {
 
     const navigate = useNavigate()
 
+
+    //userDelete antes de eliminar las listas junto con el usuario
+
+    // const userDelete = (id) => {
+
+    //     authService
+    //         .deleteUser(id)
+    //         .then((res) => {
+    //             if (user.role === "ADMIN") {
+    //                 setRefresh(res)
+
+    //             } else {
+    //                 logoutUser()
+    //                 navigate("/registro")
+    //             }
+
+    //         })
+
+    //         .catch(err => console.log(err))
+    // }
+
+    //------------------------------------------------------------>>>>
+
     const userDelete = (id) => {
+
+        listsService
+            .deleteUserLists(id)
+            .then(() => {
+            })
+            .catch(err => console.log(err))
 
         authService
             .deleteUser(id)
@@ -35,7 +65,11 @@ function UserCard({ user, setRefresh }) {
             })
 
             .catch(err => console.log(err))
+
+
     }
+
+
 
     return (
 
