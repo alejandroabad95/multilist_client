@@ -17,7 +17,7 @@ const NewListForm = ({ fireFinalActions }) => {
         title: '',
         type: 'Daily',
         description: '',
-        public: 'false',
+        isPublic: 'false',
         task1: '',
         task2: '',
         task3: ''
@@ -91,8 +91,19 @@ const NewListForm = ({ fireFinalActions }) => {
 
             <Form.Group className="mb-3" controlId="isPublic">
                 <Form.Label>Lista pública</Form.Label>
-                <Form.Control type="text" value={isPublic} onChange={handleInputChange} name="isPublic" />
+                <Form.Control type="boolean" value={isPublic} onChange={handleInputChange} name="isPublic" />
             </Form.Group>
+
+            {/* <select>
+                <option value="grapefruit">Grapefruit</option>
+                <option value="lime">Lime</option>
+                <option selected value="coconut">Coconut</option>
+                <option value="mango">Mango</option>
+            </select> */}
+
+
+
+
 
             {/* <Form.Check
 

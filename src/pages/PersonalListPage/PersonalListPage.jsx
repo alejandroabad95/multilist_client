@@ -22,12 +22,14 @@ const PersonalListPage = () => {
     const openModal = () => setShowModal(true)
     const closeModal = () => setShowModal(false)
 
+    const [refresh, setRefresh] = useState(null)
+
     const { user } = useContext(AuthContext)
 
     //uso el servicio de sacar todas las listas
     useEffect(() => {
         loadLists()
-    }, [])
+    }, [refresh])
 
 
     const loadLists = () => {
@@ -56,7 +58,7 @@ const PersonalListPage = () => {
 
                 <hr />
 
-                {!lists ? <Loader /> : <ListCollection lists={lists} />}
+                {!lists ? <Loader /> : <ListCollection setRefresh={setRefresh} lists={lists} />}
 
 
                 {/* && user._id === lists.owner */}
