@@ -14,6 +14,7 @@ import Loader from "../../components/Loader/Loader"
 import { AuthContext } from '../../contexts/auth.context'
 
 
+
 const ListPage = () => {
 
     const [lists, setLists] = useState() //cojo el estado de lists
@@ -23,6 +24,8 @@ const ListPage = () => {
 
     const openModal = () => setShowModal(true)
     const closeModal = () => setShowModal(false)
+
+
 
     const { user } = useContext(AuthContext)
 
@@ -40,10 +43,10 @@ const ListPage = () => {
     }
 
     const fireFinalActions = () => {
-        // setShowToast(true)
-        // setToastMessage('lista creada en la BBDD')
+
         loadLists()
         closeModal()
+
     }
 
 

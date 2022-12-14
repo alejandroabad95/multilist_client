@@ -1,17 +1,17 @@
-// import { createContext, useState } from 'react'
+import { createContext, useState } from 'react'
 
-// const MessageContext = createContext()
+const MessageContext = createContext()
 
-// function MessageProviderWrapper(props) {
+function MessageProviderWrapper(props) {
 
-//     const [showToast, setShowToast] = useState(false)
-//     const [toastMessage, setToastMessage] = useState('Mensaje de ejemplo')
+    const [showToast, setShowToast] = useState(false)
+    const [toastMessage, setToastMessage] = useState('Mensaje de ejemplo')
 
-//     return (
-//         <MessageContext.Provider value={{ setShowToast, showToast, setToastMessage, toastMessage }}>
-//             {props.children}
-//         </MessageContext.Provider>
-//     )
-// }
+    return (
+        <MessageContext.Provider value={{ setShowToast, showToast, setToastMessage, toastMessage }}>
+            {props.children}
+        </MessageContext.Provider>
+    )
+}
 
-// export { MessageContext, MessageProviderWrapper }
+export { MessageContext, MessageProviderWrapper }

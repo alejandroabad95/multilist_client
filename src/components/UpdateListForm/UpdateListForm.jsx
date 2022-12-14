@@ -6,6 +6,8 @@ import uploadServices from "../../services/upload.service"
 
 import ErrorMessage from "../ErrorMessage/ErrorMessage"
 
+import { MessageContext } from "../../contexts/userMessage.context"
+
 
 // import { MessageContext } from '../../contexts/userMessage.context'
 
@@ -42,7 +44,7 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
         setListDataUpdate({ ...listDataUpdate, tasks: tasksCopy })
     }
 
-    // const { setShowToast, setToastMessage } = useContext(MessageContext)
+    const { setShowToast, setToastMessage } = useContext(MessageContext)
 
     const handleFileUpload = e => {
 
@@ -67,8 +69,8 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
         listsService
             .updateList(_id, listDataUpdate)
             .then(() => {
-                // setShowToast(true)
-                // setToastMessage('Lista creada')
+                setShowToast(true)
+                setToastMessage('Lista actualizada')
                 fireFinalActions()
             })
             .catch(err => setError(err.response.data.errorMessages))

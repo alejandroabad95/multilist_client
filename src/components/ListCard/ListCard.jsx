@@ -26,7 +26,6 @@ function ListCard({ list, loadLists }) {
 
     const navigate = useNavigate()
 
-    // const [refresh, setRefresh] = useState(null)
 
     const listDelete = (id) => {
 
@@ -44,9 +43,6 @@ function ListCard({ list, loadLists }) {
     const closeModal = () => setShowModal(false)
 
     const fireFinalActions = () => {
-        // setShowToast(true)
-        // setToastMessage('lista creada en la BBDD')
-        // loadLists()
         loadLists()
         closeModal()
         navigate('/mis-listas')

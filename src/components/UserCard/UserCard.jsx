@@ -10,6 +10,7 @@ import Button from "react-bootstrap/Button"
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 
+import { MessageContext } from './../../contexts/userMessage.context'
 
 
 function UserCard({ user, setRefresh }) {
@@ -21,27 +22,8 @@ function UserCard({ user, setRefresh }) {
     const navigate = useNavigate()
 
 
-    //userDelete antes de eliminar las listas junto con el usuario
-
-    // const userDelete = (id) => {
-
-    //     authService
-    //         .deleteUser(id)
-    //         .then((res) => {
-    //             if (user.role === "ADMIN") {
-    //                 setRefresh(res)
-
-    //             } else {
-    //                 logoutUser()
-    //                 navigate("/registro")
-    //             }
-
-    //         })
-
-    //         .catch(err => console.log(err))
-    // }
-
-    //------------------------------------------------------------>>>>
+    //mensajes eliminación de cuenta if y else
+    const { setShowToast, setToastMessage } = useContext(MessageContext)
 
     const userDelete = (id) => {
 
@@ -57,9 +39,12 @@ function UserCard({ user, setRefresh }) {
                 if (user.role === "ADMIN") {
                     setRefresh(res)
 
+
                 } else {
                     logoutUser()
                     navigate("/registro")
+                    setShowToast(true)
+                    setToastMessage('Tu cuenta ha sido eliminada con éxito')
                 }
 
             })

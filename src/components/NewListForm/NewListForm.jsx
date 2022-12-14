@@ -5,9 +5,7 @@ import listsService from "../../services/list.service"
 import uploadServices from "../../services/upload.service"
 
 import ErrorMessage from "../ErrorMessage/ErrorMessage"
-
-
-// import { MessageContext } from '../../contexts/userMessage.context'
+import { MessageContext } from '../../contexts/userMessage.context'
 
 const NewListForm = ({ fireFinalActions }) => {
 
@@ -27,13 +25,12 @@ const NewListForm = ({ fireFinalActions }) => {
 
     const [errors, setError] = useState([])
 
+    const { setShowToast, setToastMessage } = useContext(MessageContext)
 
     const handleInputChange = e => {
         const { name, value, checked } = e.target
         setListData({ ...listData, [name]: name === 'isPublic' ? checked : value })
     }
-
-    // const { setShowToast, setToastMessage } = useContext(MessageContext)
 
     const handleFileUpload = e => {
 
@@ -58,8 +55,8 @@ const NewListForm = ({ fireFinalActions }) => {
         listsService
             .createList(listData)
             .then(() => {
-                // setShowToast(true)
-                // setToastMessage('Lista creada')
+                setShowToast(true)
+                setToastMessage('Lista creada en la BBDD')
                 fireFinalActions()
             })
             .catch(err => setError(err.response.data.errorMessages))

@@ -14,9 +14,11 @@ import Loader from "../../components/Loader/Loader"
 import { AuthContext } from '../../contexts/auth.context'
 
 
+
+
 const PersonalListPage = () => {
 
-    const [lists, setLists] = useState() //cojo el estado de lists
+    const [lists, setLists] = useState()
 
     const [showModal, setShowModal] = useState(false)
 
@@ -25,8 +27,6 @@ const PersonalListPage = () => {
     const closeModal = () => setShowModal(false)
 
 
-
-    const [refresh, setRefresh] = useState(null)
 
     const { user } = useContext(AuthContext)
 
@@ -42,8 +42,7 @@ const PersonalListPage = () => {
     }
 
     const fireFinalActions = () => {
-        // setShowToast(true)
-        // setToastMessage('lista creada en la BBDD')
+
         loadLists()
         closeModal()
     }
@@ -60,18 +59,6 @@ const PersonalListPage = () => {
                 <hr />
 
                 {!lists ? <Loader /> : <ListCollection loadLists={loadLists} lists={lists} />}
-
-
-                {/* && user._id === lists.owner */}
-
-
-                {/* {!lists ? <Loader /> : result */}
-
-                {/* const listComponent= <ListCollection lists={lists} />
-
-                const result = listComponent.filter(list => list.owner === user._id) */}
-
-
 
 
                 <span className="comeback">
