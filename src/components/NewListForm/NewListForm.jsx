@@ -90,13 +90,6 @@ const NewListForm = ({ fireFinalActions }) => {
                 <Form.Control type="text" value={description} onChange={handleInputChange} name="description" />
             </Form.Group>
 
-            {/* Hacer lista pública */}
-
-            {/* <Form.Group className="mb-3" controlId="isPublic">
-                <Form.Label>Lista pública</Form.Label>
-                <Form.Control type="boolean" value={isPublic} onChange={handleInputChange} name="isPublic" />
-            </Form.Group> */}
-
             <Form.Check
                 label="Lista pública?"
                 type="switch"
@@ -105,20 +98,6 @@ const NewListForm = ({ fireFinalActions }) => {
                 onChange={handleInputChange}
                 name='isPublic'
             />
-
-
-
-            {/* <Form.Check
-
-                type="switch"
-                id="custom-switch"
-                label="Hacer lista pública"
-                value="true"
-
-            /> */}
-
-
-            {/* ---------------------*/}
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Imagen</Form.Label>

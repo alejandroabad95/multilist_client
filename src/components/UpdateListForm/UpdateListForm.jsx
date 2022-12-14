@@ -15,7 +15,7 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
 
     const [listDataUpdate, setListDataUpdate] = useState({
 
-        imageUrl: imageUrl,
+        imageUrl: '',
         title: title,
         type: type,
         description: description,
@@ -30,8 +30,8 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
 
 
     const handleInputChange = e => {
-        const { name, value } = e.target
-        setListDataUpdate({ ...listDataUpdate, [name]: value })
+        const { name, value, checked } = e.target
+        setListDataUpdate({ ...listDataUpdate, [name]: name === 'isPublic' ? checked : value })
     }
 
     // const { setShowToast, setToastMessage } = useContext(MessageContext)
@@ -66,6 +66,7 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
             .catch(err => console.log(err))
     }
 
+    console.log(listDataUpdate.imageUrl)
 
     return (
 
@@ -86,15 +87,22 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
                 <Form.Control type="text" value={listDataUpdate.description} onChange={handleInputChange} name="description" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="isPublic">
-                <Form.Label>Lista pública</Form.Label>
-                <Form.Control type="boolean" value={listDataUpdate.isPublic} onChange={handleInputChange} name="isPublic" />
-            </Form.Group>
+            <Form.Check
+                label="Lista pública?"
+                type="switch"
+                id="custom-switch"
+                checked={listDataUpdate.isPublic}
+                onChange={handleInputChange}
+                name='isPublic'
+            />
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Imagen</Form.Label>
                 <Form.Control type="file" onChange={handleFileUpload} />
             </Form.Group>
+
+
+
 
             <Form.Group className="mb-3" controlId="task1">
                 <Form.Label>Tarea 1</Form.Label>
