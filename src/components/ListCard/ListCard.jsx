@@ -2,34 +2,57 @@ import './ListCard.css'
 import Card from 'react-bootstrap/Card'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
-import { Link, useRouteLoaderData } from 'react-router-dom'
-import { Form } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import ErrorMessage from "../ErrorMessage/ErrorMessage"
 import listsService from '../../services/list.service'
+
 import { AuthContext } from '../../contexts/auth.context'
 import { useContext } from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
+
+import UpdateListForm from '../UpdateListForm/UpdateListForm'
+
+import { useNavigate } from 'react-router-dom'
 
 
-function ListCard({ list, setRefresh }) {
+function ListCard({ list, loadLists }) {
 
     const { description, tasks, title, imageUrl, type, _id, owner } = list
+
+    const { user } = useContext(AuthContext)
+
+    const [lists, setLists] = useState()
+
+    const navigate = useNavigate()
+
+    // const [refresh, setRefresh] = useState(null)
 
     const listDelete = (id) => {
 
         listsService
             .deleteList(id)
-            .then((res) => {
-                setRefresh(res)
-
+            .then(() => {
+                loadLists()
             })
-
             .catch(err => console.log(err))
     }
 
-    // -----------------------------------------------------------------------
+    const [showModal, setShowModal] = useState(false)
 
+    const openModal = () => setShowModal(true)
+    const closeModal = () => setShowModal(false)
 
-    const { user } = useContext(AuthContext)
+    const fireFinalActions = () => {
+        // setShowToast(true)
+        // setToastMessage('lista creada en la BBDD')
+        // loadLists()
+        loadLists()
+        closeModal()
+        navigate('/mis-listas')
+    }
+
+    //-----------------------------------------------------
 
     return (
         <Card className="bg-light mb-4 ListCard">
@@ -60,6 +83,25 @@ function ListCard({ list, setRefresh }) {
                 </Accordion.Item>
             </Accordion>
 
+
+            {(user?._id === owner) &&
+                < div className="d-grid">
+                    <Button variant="warning" onClick={openModal} size="sm">Actualizar lista</Button>
+                </div>
+
+            }
+
+
+            <Modal show={showModal} onHide={closeModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Actualizar lista</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <UpdateListForm fireFinalActions={fireFinalActions} list={list} />
+                </Modal.Body>
+            </Modal>
+
+
             {(user?.role === "ADMIN" || user?._id === owner) &&
 
                 < div className="d-grid">
@@ -67,7 +109,6 @@ function ListCard({ list, setRefresh }) {
                 </div>
 
             }
-
 
         </Card >
 

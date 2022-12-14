@@ -21,16 +21,15 @@ const ListPage = () => {
     const [showModal, setShowModal] = useState(false)
 
 
-
     const openModal = () => setShowModal(true)
     const closeModal = () => setShowModal(false)
-    const [refresh, setRefresh] = useState(null)
+
     const { user } = useContext(AuthContext)
 
     //uso el servicio de sacar todas las listas
     useEffect(() => {
         loadLists()
-    }, [refresh])
+    }, [])
 
 
     const loadLists = () => {
@@ -62,7 +61,7 @@ const ListPage = () => {
                 }
 
                 <hr />
-                {!lists ? <Loader /> : <ListCollection setRefresh={setRefresh} lists={lists} />}
+                {!lists ? <Loader /> : <ListCollection loadLists={loadLists} lists={lists} />}
 
                 <span className="comeback">
                     <Link to="/">

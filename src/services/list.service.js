@@ -38,7 +38,7 @@ class ListService {
     }
 
     updateList = (listId, listData) => {
-        return this.api.put(`/lists/updateList/${listId}`, listData);
+        return this.api.put(`/updateList/${listId}`, listData);
     }
 
 

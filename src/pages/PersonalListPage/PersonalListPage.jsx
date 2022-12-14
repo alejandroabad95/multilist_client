@@ -19,18 +19,20 @@ const PersonalListPage = () => {
     const [lists, setLists] = useState() //cojo el estado de lists
 
     const [showModal, setShowModal] = useState(false)
+
+
     const openModal = () => setShowModal(true)
     const closeModal = () => setShowModal(false)
+
+
 
     const [refresh, setRefresh] = useState(null)
 
     const { user } = useContext(AuthContext)
 
-    //uso el servicio de sacar todas las listas
     useEffect(() => {
         loadLists()
-    }, [refresh])
-
+    }, [])
 
     const loadLists = () => {
         listsService
@@ -47,7 +49,6 @@ const PersonalListPage = () => {
     }
 
 
-
     return (
 
         <>
@@ -58,7 +59,7 @@ const PersonalListPage = () => {
 
                 <hr />
 
-                {!lists ? <Loader /> : <ListCollection setRefresh={setRefresh} lists={lists} />}
+                {!lists ? <Loader /> : <ListCollection loadLists={loadLists} lists={lists} />}
 
 
                 {/* && user._id === lists.owner */}
@@ -80,9 +81,6 @@ const PersonalListPage = () => {
                 </span>
 
             </Container>
-
-
-
 
             <Modal show={showModal} onHide={closeModal}>
                 <Modal.Header closeButton>
