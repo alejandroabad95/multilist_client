@@ -67,7 +67,7 @@ const NewListForm = ({ fireFinalActions }) => {
 
     const { imageUrl, title, type, description, isPublic, task1, task2, task3 } = listData
 
-    console.log(isPublic)
+
 
 
 

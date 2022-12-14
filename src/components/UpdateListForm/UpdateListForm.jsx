@@ -23,7 +23,7 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
         tasks: tasks
 
     })
-
+    console.log('las tareas!', listDataUpdate.tasks)
     const [loadingImage, setLoadingImage] = useState(false)
 
     const [errors, setError] = useState([])
@@ -32,6 +32,14 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
     const handleInputChange = e => {
         const { name, value, checked } = e.target
         setListDataUpdate({ ...listDataUpdate, [name]: name === 'isPublic' ? checked : value })
+    }
+
+    const handleTasksInputs = (e, index) => {
+        const { value } = e.target
+        const tasksCopy = [...listDataUpdate.tasks]
+        tasksCopy[index] = value
+
+        setListDataUpdate({ ...listDataUpdate, tasks: tasksCopy })
     }
 
     // const { setShowToast, setToastMessage } = useContext(MessageContext)
@@ -63,10 +71,10 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
                 // setToastMessage('Lista creada')
                 fireFinalActions()
             })
-            .catch(err => console.log(err))
+            .catch(err => setError(err.response.data.errorMessages))
     }
 
-    console.log(listDataUpdate.imageUrl)
+
 
     return (
 
@@ -101,22 +109,19 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
                 <Form.Control type="file" onChange={handleFileUpload} />
             </Form.Group>
 
-
-
-
             <Form.Group className="mb-3" controlId="task1">
                 <Form.Label>Tarea 1</Form.Label>
-                <Form.Control type="text" value={listDataUpdate.tasks[0]} onChange={handleInputChange} name="task1" />
+                <Form.Control type="text" value={listDataUpdate.tasks[0]} onChange={(e) => handleTasksInputs(e, 0)} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="task2">
                 <Form.Label>Tarea 2</Form.Label>
-                <Form.Control type="text" value={listDataUpdate.tasks[1]} onChange={handleInputChange} name="task2" />
+                <Form.Control type="text" value={listDataUpdate.tasks[1]} onChange={(e) => handleTasksInputs(e, 1)} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="task3">
                 <Form.Label>Tarea 3</Form.Label>
-                <Form.Control type="text" value={listDataUpdate.tasks[2]} onChange={handleInputChange} name="task3" />
+                <Form.Control type="text" value={listDataUpdate.tasks[2]} onChange={(e) => handleTasksInputs(e, 2)} />
             </Form.Group>
 
             {errors.length ? <ErrorMessage>{errors.map(elm => <p style={{ color: 'red' }}> {elm}</p>)}</ErrorMessage> : undefined}
