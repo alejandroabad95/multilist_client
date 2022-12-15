@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Accordion from 'react-bootstrap/Accordion'
 import Button from 'react-bootstrap/Button'
 import { Modal } from 'react-bootstrap'
+import { MessageContext } from '../../contexts/userMessage.context'
 import ErrorMessage from "../ErrorMessage/ErrorMessage"
 import listsService from '../../services/list.service'
 
@@ -18,7 +19,7 @@ import { useNavigate } from 'react-router-dom'
 
 function ListCard({ list, loadLists }) {
 
-    const { description, tasks, title, imageUrl, type, _id, owner } = list
+    const { description, tasks, title, imageUrl, type, isPublic, _id, owner } = list
 
     const { user } = useContext(AuthContext)
 
@@ -26,12 +27,15 @@ function ListCard({ list, loadLists }) {
 
     const navigate = useNavigate()
 
+    const { setShowToast, setToastMessage } = useContext(MessageContext)
 
     const listDelete = (id) => {
 
         listsService
             .deleteList(id)
             .then(() => {
+                setShowToast(true)
+                setToastMessage('Lista eliminada')
                 loadLists()
             })
             .catch(err => console.log(err))
@@ -48,26 +52,29 @@ function ListCard({ list, loadLists }) {
         navigate('/mis-listas')
     }
 
-    //-----------------------------------------------------
+    console.log(user?.username)
 
     return (
         <Card className="bg-light mb-4 ListCard">
 
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{type}</Card.Subtitle>
+                <Card.Title>{title}
+                    {(list.isPublic === true) ? " 🌏" : " 🔓"}
+                </Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{type}
+                </Card.Subtitle>
                 <Card.Img variant="top" src={imageUrl} />
             </Card.Body>
 
-            <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="0">
+            <Accordion defaultActiveKey="1">
+                <Accordion.Item eventKey="1">
                     <Accordion.Header>Descripción</Accordion.Header>
                     <Accordion.Body>{description}</Accordion.Body>
                 </Accordion.Item>
             </Accordion>
 
-            <Accordion defaultActiveKey="1">
-                <Accordion.Item eventKey="1">
+            <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
                     <Accordion.Header>Tareas</Accordion.Header>
                     <Accordion.Body>{tasks[0]}
                         {/* <Link to="/">
@@ -119,6 +126,8 @@ function ListCard({ list, loadLists }) {
 
 
     );
+
+
 }
 
 export default ListCard;

@@ -25,7 +25,7 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
         tasks: tasks
 
     })
-    console.log('las tareas!', listDataUpdate.tasks)
+
     const [loadingImage, setLoadingImage] = useState(false)
 
     const [errors, setError] = useState([])
@@ -89,22 +89,32 @@ const UpdateListForm = ({ fireFinalActions, list }) => {
 
             <Form.Group className="mb-3" controlId="type">
                 <Form.Label>Tipo de lista</Form.Label>
-                <Form.Control type="text" value={listDataUpdate.type} onChange={handleInputChange} name="type" />
+                <Form.Control as="select" type="text" value={listDataUpdate.type} onChange={handleInputChange} name="type">
+                    <option value="Daily">Daily</option>
+                    <option value="Health">Health</option>
+                    <option value="Social">Social</option>
+                    <option value="Hobbies">Hobbies</option>
+                    <option value="Work">Work</option>
+                    <option value="Finance">Finance</option>
+                </Form.Control>
+
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="desc">
-                <Form.Label>Descripción</Form.Label>
-                <Form.Control type="text" value={listDataUpdate.description} onChange={handleInputChange} name="description" />
-            </Form.Group>
 
             <Form.Check
-                label="Lista pública?"
+                label="¿Lista pública?"
                 type="switch"
                 id="custom-switch"
                 checked={listDataUpdate.isPublic}
                 onChange={handleInputChange}
                 name='isPublic'
             />
+
+            <Form.Group className="mb-3" controlId="desc">
+                <Form.Label>Descripción</Form.Label>
+                <Form.Control type="text" as="textarea" value={listDataUpdate.description} onChange={handleInputChange} name="description" />
+            </Form.Group>
+
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Imagen</Form.Label>

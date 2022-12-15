@@ -64,10 +64,6 @@ const NewListForm = ({ fireFinalActions }) => {
 
     const { imageUrl, title, type, description, isPublic, task1, task2, task3 } = listData
 
-
-
-
-
     return (
 
         <Form onSubmit={handleFormSubmit}>
@@ -79,22 +75,32 @@ const NewListForm = ({ fireFinalActions }) => {
 
             <Form.Group className="mb-3" controlId="type">
                 <Form.Label>Tipo de lista</Form.Label>
-                <Form.Control type="text" value={type} onChange={handleInputChange} name="type" />
-            </Form.Group>
+                <Form.Control as="select" type="text" value={type} onChange={handleInputChange} name="type">
+                    <option value="Daily">Daily</option>
+                    <option value="Health">Health</option>
+                    <option value="Social">Social</option>
+                    <option value="Hobbies">Hobbies</option>
+                    <option value="Work">Work</option>
+                    <option value="Finance">Finance</option>
+                </Form.Control>
 
-            <Form.Group className="mb-3" controlId="desc">
-                <Form.Label>Descripción</Form.Label>
-                <Form.Control type="text" value={description} onChange={handleInputChange} name="description" />
             </Form.Group>
 
             <Form.Check
-                label="Lista pública?"
+                label="¿Lista pública?"
                 type="switch"
                 id="custom-switch"
                 checked={isPublic}
                 onChange={handleInputChange}
                 name='isPublic'
             />
+
+            <Form.Group className="mb-3" controlId="desc">
+                <Form.Label>Descripción</Form.Label>
+                <Form.Control type="text" as="textarea" value={description} onChange={handleInputChange} name="description" />
+            </Form.Group>
+
+
 
             <Form.Group className="mb-3" controlId="image">
                 <Form.Label>Imagen</Form.Label>
@@ -122,7 +128,7 @@ const NewListForm = ({ fireFinalActions }) => {
             <div className="d-grid">
                 <Button variant="dark" type="submit">Crear lista</Button>
             </div>
-        </Form>
+        </Form >
     )
 }
 
