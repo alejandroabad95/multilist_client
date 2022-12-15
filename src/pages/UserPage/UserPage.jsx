@@ -24,16 +24,9 @@ const UserPage = () => {
         <Container >
             <h1>Perfil de usuario</h1>
 
-            {/* {user.role === "ADMIN" ?
-                <Button onClick={openModal} variant="dark" size="sm">Crear lista</Button>
-                :
-                <></>
-
-            } */}
-
             <hr />
 
-            {!user ? <Loader /> : <UserCard user={user} setRefresh={setRefresh} />}
+            {!user ? <Loader /> : <UserCard userData={user} setRefresh={setRefresh} />}
 
             <span className="comeback">
                 <Link to="/">

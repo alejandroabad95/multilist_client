@@ -13,11 +13,13 @@ import { useContext } from 'react'
 import { MessageContext } from './../../contexts/userMessage.context'
 
 
-function UserCard({ user, setRefresh }) {
+function UserCard({ userData, setRefresh }) {
 
-    const { username, email, role, _id } = user
+    const { username, email, role, _id } = userData
 
-    const { logoutUser } = useContext(AuthContext)
+
+
+    const { logoutUser, user } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -36,9 +38,10 @@ function UserCard({ user, setRefresh }) {
         authService
             .deleteUser(id)
             .then((res) => {
-                if (user.role === "ADMIN") {
+                if (user?.role === "ADMIN") {
                     setRefresh(res)
-
+                    setShowToast(true)
+                    setToastMessage('Cuenta eliminada')
 
                 } else {
                     logoutUser()
@@ -56,6 +59,8 @@ function UserCard({ user, setRefresh }) {
 
 
 
+
+
     return (
 
 
@@ -69,7 +74,7 @@ function UserCard({ user, setRefresh }) {
             </Card.Body>
 
             <Card.Body>
-                {(user?.role === "USER") &&
+                {(user?.role === "ADMIN" || user._id === userData._id) &&
                     < div className="d-grid">
                         <Button variant="danger" onClick={() => userDelete(_id)} type="submit">ELIMINAR</Button>
                     </div>

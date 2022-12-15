@@ -14,15 +14,16 @@ const UserList = ({ users, setRefresh }) => {
 
     const { user } = useContext(AuthContext)
 
+
     return (
 
         <>
             <Row>
-                {users.map(user => {
+                {users.map(userData => {
 
                     return (
-                        <Row sm={{ span: 4 }} key={user._id} >
-                            <UserCard user={user} setRefresh={setRefresh} />
+                        <Row sm={{ span: 4 }} key={userData._id} >
+                            <UserCard userData={userData} setRefresh={setRefresh} />
                         </Row>
                     )
 
