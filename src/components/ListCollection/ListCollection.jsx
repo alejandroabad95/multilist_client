@@ -16,7 +16,7 @@ const ListCollection = ({ lists, loadLists }) => {
     // console.log(user._id, 'id del usuario')
 
     return (
-        <Row>
+        <Row className="mb-4">
             {lists.map(list => {
 
                 return (

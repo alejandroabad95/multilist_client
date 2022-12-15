@@ -68,8 +68,8 @@ function UserCard({ userData, setRefresh }) {
         <Card className="mb-4 CoasterCard">
             <Card.Body>
                 <Card.Title>Nick: {username} </Card.Title>
-                <Card.Title>email: {email} </Card.Title>
-                <Card.Title>rol: {role} </Card.Title>
+                <Card.Title>Email: {email} </Card.Title>
+                <Card.Title>Rol: {role} </Card.Title>
 
             </Card.Body>
 

@@ -1,7 +1,6 @@
 .App {
   font-family: Verdana, sans-serif;
   font-weight: 300;
-
 }
 
 /* h1,p,etc */
@@ -22,8 +21,9 @@
 
 .App hr {
 
-  border: solid;
-  border-width: 2px;
+  border: inset;
+  border-width: 5px;
+  color: blue;
 
 
 }

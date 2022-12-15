@@ -21,23 +21,20 @@ const UserPage = () => {
 
     return (
 
-        <Container >
-            <h1>Perfil de usuario</h1>
-
-            <hr />
-
-            {!user ? <Loader /> : <UserCard userData={user} setRefresh={setRefresh} />}
-
-            <span className="comeback">
+        <Container className="mb-5" >
+            <h1>Bienvenido {user.username} 🙂</h1>
+            <span>
                 <Link to="/">
                     <Button variant="dark">Volver a inicio</Button>
                 </Link>
             </span>
+            <hr />
+
+            {!user ? <Loader /> : <UserCard userData={user} setRefresh={setRefresh} />}
+
+
 
         </Container>
-
-
-
 
     )
 

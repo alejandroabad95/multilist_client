@@ -47,16 +47,16 @@ const UserListPage = () => {
 
         user.role === "ADMIN" ?
 
-            < Container >
+            < Container>
                 < h1 > Lista de usuarios</h1 >
+                <span>
+                    <Link to="/">
+                        <Button variant="dark" size="md">Volver a inicio</Button>
+                    </Link>
+                </span>
                 <hr />
                 {!users ? <Loader /> : <UserList users={users} setRefresh={setRefresh} />}
 
-                <span className="comeback">
-                    <Link to="/">
-                        <Button variant="dark">Volver a inicio</Button>
-                    </Link>
-                </span>
             </Container >
             :
             <>

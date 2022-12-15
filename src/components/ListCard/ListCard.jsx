@@ -77,6 +77,12 @@ function ListCard({ list, loadLists }) {
                     <Accordion.Body>{tasks[1]}</Accordion.Body>
                     <Accordion.Body>{tasks[2]}</Accordion.Body>
                 </Accordion.Item>
+
+
+
+
+
+
             </Accordion>
 
 
