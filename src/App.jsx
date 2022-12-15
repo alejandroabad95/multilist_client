@@ -13,7 +13,7 @@ const App = () => {
       <Footer />
       <UserMessage />
     </div >
-  );
+  )
 }
 
 export default App;

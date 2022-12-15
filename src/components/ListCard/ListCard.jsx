@@ -82,7 +82,7 @@ function ListCard({ list, loadLists }) {
 
             {(user?._id === owner) &&
                 < div className="d-grid">
-                    <Button variant="warning" onClick={openModal} size="sm">Actualizar lista</Button>
+                    <Button variant="warning" onClick={openModal} size="sm">ACTUALIZAR</Button>
                 </div>
 
             }

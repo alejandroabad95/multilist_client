@@ -54,18 +54,21 @@ const PersonalListPage = () => {
             <Container >
                 <h1>Mis listas</h1>
 
-                <Button onClick={openModal} variant="dark" size="sm">Crear lista</Button>
+                <Button onClick={openModal} variant="success">Crear lista</Button>
+                <span>
+                    <Link to="/">
+                        <Button variant="dark">Volver a inicio</Button>
+                    </Link>
+                </span>
+
+
 
                 <hr />
 
                 {!lists ? <Loader /> : <ListCollection loadLists={loadLists} lists={lists} />}
 
 
-                <span className="comeback">
-                    <Link to="/">
-                        <Button variant="dark" className="float-right">Volver a inicio</Button>
-                    </Link>
-                </span>
+
 
             </Container>
 

@@ -12,14 +12,14 @@ const Navigation = () => {
 
 
     return (
-        <Navbar bg="secondary" expand="lg" variant="dark" className="mb-5" >
-            <Container >
+        <Navbar expand="md" className="mb-5 navbarCss" variant="dark" >
+            <Container>
                 <Link to="/">
                     <Navbar.Brand as="div">📋 Multilist</Navbar.Brand>
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto navlinkCss">
 
                         <Link to="/listas">
                             <Nav.Link as="div">Listas</Nav.Link>

@@ -1,12 +1,14 @@
 footer {
-    background-color: lightgray;
-    color: black;
+    background-color: orangered;
+    color: white;
+    text-shadow: 1px 1px black;
     font-size: .8em;
     text-align: center;
     font-weight: bolder;
-    padding: 4px;
+    padding: 2px;
     position: fixed;
     width: 100%;
     bottom: 0;
-    left: 0
+    left: 0;
+
 }

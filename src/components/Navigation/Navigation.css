@@ -1,0 +1,23 @@
+.navbarCss {
+
+    /* background-color: rgb(255, 176, 147); */
+    background-color: orangered;
+    text-shadow: 1px 1px black;
+    border-width: 2px;
+
+}
+
+
+/* .navbarCss .container {
+
+    margin-left: 20px;
+
+
+} */
+
+
+.navlinkCss div {
+    color: white;
+    text-shadow: 1px 1px black;
+
+}

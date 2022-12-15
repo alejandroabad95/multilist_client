@@ -6,6 +6,7 @@ import './HomePage.css'
 const HomePage = () => {
 
     return (
+
         <Container className="Home">
 
             <Row>
@@ -15,8 +16,9 @@ const HomePage = () => {
                     <h1>¡Bienvenidos a Multilist!</h1>
                     <hr />
                     <p>La aplicación de listas definitiva</p>
+                    <hr />
                     <Link to="/listas">
-                        <Button variant="dark">Listas públicas</Button>
+                        <Button variant="dark" size="lg">Listas públicas</Button>
                     </Link>
 
                 </Col>

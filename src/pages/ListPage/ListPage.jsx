@@ -53,24 +53,25 @@ const ListPage = () => {
     return (
 
         <>
-            <Container >
+            <Container className='listPage'>
                 <h1>Listas hechas por los usuarios</h1>
 
                 {user ?
-                    <Button onClick={openModal} variant="dark" size="sm">Crear lista</Button>
+                    <Button onClick={openModal} variant="success" size="md">Crear lista</Button>
                     :
                     <></>
 
                 }
 
+                <span>
+                    <Link to="/">
+                        <Button variant="dark" size="md">Volver a inicio</Button>
+                    </Link>
+                </span>
+
                 <hr />
                 {!lists ? <Loader /> : <ListCollection loadLists={loadLists} lists={lists} />}
 
-                <span className="comeback">
-                    <Link to="/">
-                        <Button variant="dark" className="float-right">Volver a inicio</Button>
-                    </Link>
-                </span>
 
             </Container>
 
